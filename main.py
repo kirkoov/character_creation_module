@@ -85,7 +85,7 @@ def choice_char_class():
         if char_class == 'warrior':
             print(WARRIOR_LINE)
         if char_class == 'mage':
-            print()
+            print(MAGE_LINE)
         if char_class == 'healer':
             print(HEALER_LINE)
         approve_choice = input(APPR_CHOICE_LINE).lower()
