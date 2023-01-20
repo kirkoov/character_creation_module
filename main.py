@@ -1,4 +1,5 @@
 from random import randint
+from graphic_arts.start_game_banner import run_screensaver
 
 DAMAGE_LINE: str = 'нанёс урон противнику, равный'
 SPEC_SKILL_LINE: str = 'применил специальное умение'
@@ -100,6 +101,7 @@ def choice_char_class() -> str:
 
 def main() -> None:
     """Docstring goes here."""
+    run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name: str = input('...назови себя: ')
