@@ -99,7 +99,10 @@ def choice_char_class() -> str:
     return char_class
 
 
-def main() -> None:
+# def main() -> None:
+
+
+if __name__ == '__main__':
     """Docstring goes here."""
     run_screensaver()
     print('Приветствую тебя, искатель приключений!')
@@ -111,7 +114,3 @@ def main() -> None:
     print('Воитель, Маг, Лекарь')
     char_class: str = choice_char_class()
     start_training(char_name, char_class)
-
-
-if __name__ == '__main__':
-    main()
