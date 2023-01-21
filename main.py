@@ -1,7 +1,7 @@
 from random import randint
 from graphic_arts.start_game_banner import run_screensaver
 
-# String literals for 79-longer lines 
+# String literals for 79-longer lines
 DAMAGE_LINE: str = 'нанёс урон противнику, равный'
 SPEC_SKILL_LINE: str = 'применил специальное умение'
 ENTER_CMDS_LINE: str = ''.join([
@@ -29,7 +29,6 @@ def attack(char_name: str, char_class: str) -> str:
     """Attack per hero.
     Args: hero name, hero class.
     Return: a str representation of damage the hero can do."""
-
     res: str = ''
     if char_class == 'warrior':
         res = f'{char_name} {DAMAGE_LINE} {5 + randint(3, 5)}'
@@ -44,7 +43,6 @@ def defence(char_name: str, char_class: str) -> str:
     """Defense per hero.
     Args: hero name, hero class.
     Return: a str representation of defence the hero is capable of."""
-
     res: str = ''
     if char_class == 'warrior':
         res = f'{char_name} блокировал {10 + randint(5, 10)} урона'
@@ -59,7 +57,6 @@ def special(char_name: str, char_class: str) -> str:
     """Special skill per hero.
     Args: hero name, hero class.
     Return: a str representation of magic the hero can cast."""
-
     res: str = ''
     if char_class == 'warrior':
         res = f'{char_name} {SPEC_SKILL_LINE} «Выносливость {80 + 25}»'
@@ -75,7 +72,6 @@ def start_training(char_name: str, char_class: str) -> str:
     Args: hero name, hero class.
     Return: a str representation of attack/defence/special actions
     performed."""
-
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -121,7 +117,6 @@ if __name__ == '__main__':
     warrior/mage/healer, and then offer to start training.
     Args: None.
     Return: None."""
-
     run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
