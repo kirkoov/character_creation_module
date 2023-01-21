@@ -10,7 +10,6 @@ from pyfiglet import Figlet  # type: ignore[import]
 
 def animation(screen):
     scenes = []
-
     text = Figlet(font="banner", width=200).renderText("START GAME")
     print(text)
     effects = [
@@ -30,10 +29,8 @@ def animation(screen):
               SpeechBubble("Please press X - start game"),
               screen.height - 5,
               speed=1, transparent=False)
-
     ]
     scenes.append(Scene(effects, -1))
-
     screen.play(scenes, stop_on_resize=True)
 
 
@@ -41,6 +38,6 @@ def run_screensaver():
     Screen.wrapper(animation)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     run_screensaver()
     sys.exit(0)
