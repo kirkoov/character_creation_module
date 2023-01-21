@@ -56,7 +56,7 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
-    """Special skill per hero.
+    """Return a special skill per hero.
     Args: hero name, hero class.
     Return: a str representation of magic the hero can cast.
     """
