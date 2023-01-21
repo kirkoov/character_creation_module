@@ -1,3 +1,4 @@
+import sys
 from asciimatics.renderers import FigletText, Fire  # type: ignore[import]
 from asciimatics.renderers import SpeechBubble
 from asciimatics.scene import Scene  # type: ignore[import]
@@ -5,7 +6,6 @@ from asciimatics.screen import Screen  # type: ignore[import]
 from asciimatics.effects import Print  # type: ignore[import]
 # from asciimatics.exceptions import ResizeScreenError
 from pyfiglet import Figlet  # type: ignore[import]
-import sys
 
 
 def animation(screen):
