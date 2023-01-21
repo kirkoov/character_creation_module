@@ -1,10 +1,10 @@
-from asciimatics.renderers import FigletText, Fire
+from asciimatics.renderers import FigletText, Fire  # type: ignore[import]
 from asciimatics.renderers import SpeechBubble
-from asciimatics.scene import Scene
-from asciimatics.screen import Screen
-from asciimatics.effects import Print
-from asciimatics.exceptions import ResizeScreenError
-from pyfiglet import Figlet
+from asciimatics.scene import Scene  # type: ignore[import]
+from asciimatics.screen import Screen  # type: ignore[import]
+from asciimatics.effects import Print  # type: ignore[import]
+# from asciimatics.exceptions import ResizeScreenError
+from pyfiglet import Figlet  # type: ignore[import]
 import sys
 
 
@@ -28,7 +28,7 @@ def animation(screen):
               speed=1),
         Print(screen,
               SpeechBubble("Please press X - start game"),
-              screen.height-5,
+              screen.height - 5,
               speed=1, transparent=False)
 
     ]
