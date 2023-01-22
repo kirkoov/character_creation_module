@@ -30,6 +30,13 @@ class Quest:
         return (f'Квест "{self.name}"" окончен. Время выполнения квеста: '
                 f'{completion_time}.')
 
+    def __str__(self):
+        if self.end_time is not None and self.start_time is not None:
+            adder = 'Квест завершён.'
+        else:
+            adder = 'Квест выполняется.'
+        return f'Цель квеста "{self.name}" — {self.goal} {adder}'
+
 
 quest_name = 'Сбор пиксельники'
 quest_goal = 'Соберите 12 ягод пиксельники.'
@@ -45,6 +52,9 @@ print(new_quest.accept_quest())
 time.sleep(3)
 print(new_quest.pass_quest())
 print(new_quest.accept_quest())
+
+# Печатаем объекта класса Quest:
+print(new_quest)
 
 
 # def tricky_func(self):
