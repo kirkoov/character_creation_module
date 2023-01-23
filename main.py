@@ -108,7 +108,3 @@ class Healer(Character):
 warrior = Warrior('Кодослав')
 print(warrior)
 print(warrior.attack())
-
-character = Character('Ваня')
-print(character)
-print(character.attack())
