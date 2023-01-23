@@ -35,7 +35,8 @@ APPR_CHOICE_LINE: str = ''.join(
 class Character:
     """Create a character basic for others to inherit from."""
 
-    # Score range constants.
+    # Basic class constants.
+    BRIEF_DESC_CHAR_CLASS = 'отважный любитель приключений'
     RANGE_VALUE_ATTACK = (1, 3)
     RANGE_VALUE_DEFENCE = (1, 5)
     SPECIAL_SKILL = 'Удача'
@@ -45,28 +46,32 @@ class Character:
         self.name = name
 
     def attack(self):
-        """Attack to be later overridden per hero.
-        Args: hero name, hero class.
-        Return: a str representation of damage a hero can do.
+        """Attack to be later overridden per character.
+        Args: character name, character class.
+        Return: a str representation of damage a character can do.
         """
         value_attack = DEFAULT_ATTACK + randint(*self.RANGE_VALUE_ATTACK)
         return f'{self.name} {DAMAGE_LINE} {value_attack}'
 
     def defence(self):
-        """Defence per hero.
-        Args: hero name, hero class.
-        Return: a str representation of defence a hero is capable of as per
-        their class."""
+        """Defence per character.
+        Args: character name, character class.
+        Return: a str representation of defence a character is capable of
+        as per their class."""
         value_defence = DEFAULT_DEFENCE + randint(*self.RANGE_VALUE_DEFENCE)
         return (f'{self.name} {BLOCK_LINE} {value_defence} {DAMAGE_UNIT}.')
 
     def special(self):
-        """Use a special skill per hero.
-        Args: hero name, hero class.
-        Return: a str representation of magic the hero can cast.
+        """Use a special skill per character.
+        Args: character name, character class.
+        Return: a str representation of magic the character can cast.
         """
         return (f'{self.name} {SPEC_SKILL_LINE} '
                 f'"{self.SPECIAL_SKILL} {self.SPECIAL_BUFF}".')
+
+    def __str__(self):
+        """Describe a character."""
+        return f'{self.__class__.__name__} - {self.BRIEF_DESC_CHAR_CLASS}.'
 
 
 class Warrior(Character):
