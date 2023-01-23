@@ -72,13 +72,13 @@ class Character:
 
     def __str__(self):
         """Describe a character based on their class."""
-        return f'{self.__class__.__name__} - {self.BRIEF_DESC_CHAR_CLASS}.'
+        return f'{self.__class__.__name__} — {self.BRIEF_DESC_CHAR_CLASS}.'
 
 
 class Warrior(Character):
     """Create a Warrior instance of the Character class."""
-    BRIEF_DESC_CHAR_CLASS: str = (' дерзкий воин ближнего боя.'
-                                  ' Сильный, выносливый и отважный.')
+    BRIEF_DESC_CHAR_CLASS: str = ('дерзкий воин ближнего боя. '
+                                  'Сильный, выносливый и отважный')
     RANGE_VALUE_ATTACK = (3, 5)
     RANGE_VALUE_DEFENCE = (5, 10)
     SPECIAL_BUFF = DEFAULT_STAMINA + 25
@@ -87,8 +87,8 @@ class Warrior(Character):
 
 class Mage(Character):
     """Create a Mage instance of the Character class."""
-    BRIEF_DESC_CHAR_CLASS = (' находчивый воин дальнего боя.'
-                             ' Обладает высоким интеллектом')
+    BRIEF_DESC_CHAR_CLASS = ('находчивый воин дальнего боя. '
+                             'Обладает высоким интеллектом')
     RANGE_VALUE_ATTACK = (5, 10)
     RANGE_VALUE_DEFENCE = (-2, 2)
     SPECIAL_BUFF = DEFAULT_ATTACK + 40
@@ -97,9 +97,18 @@ class Mage(Character):
 
 class Healer(Character):
     """Create a Healer instance of the Character class."""
-    BRIEF_DESC_CHAR_CLASS = (' могущественный заклинатель.'
-                             ' Черпает силы из природы, веры и духов')
+    BRIEF_DESC_CHAR_CLASS = ('могущественный заклинатель. '
+                             'Черпает силы из природы, веры и духов')
     RANGE_VALUE_ATTACK = (-3, -1)
     RANGE_VALUE_DEFENCE = (2, 5)
     SPECIAL_BUFF = DEFAULT_DEFENCE + 30
     SPECIAL_SKILL = 'Защита'
+
+
+warrior = Warrior('Кодослав')
+print(warrior)
+print(warrior.attack())
+
+character = Character('Ваня')
+print(character)
+print(character.attack())
