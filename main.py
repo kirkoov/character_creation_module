@@ -1,5 +1,5 @@
 """
-The same character creation module, yet with classes to carry on.
+The same character creation module, yet with classes, to carry on.
 """
 from random import randint
 
@@ -65,7 +65,7 @@ class Character:
     def special(self):
         """Use a special skill per character.
         Args: character name, character class.
-        Return: a str representation of magic the character can cast.
+        Return: a str representation of magic a character can cast.
         """
         return (f'{self.name} {SPEC_SKILL_LINE} '
                 f'"{self.SPECIAL_SKILL} {self.SPECIAL_BUFF}".')
@@ -105,6 +105,29 @@ class Healer(Character):
     SPECIAL_SKILL = 'Защита'
 
 
-warrior = Warrior('Кодослав')
-print(warrior)
-print(warrior.attack())
+def choice_char_class(char_name: str) -> Character:
+    """Let the user choose their hero: warrior/mage/healer.
+    Args: None.
+    Return: an instance of the chosen class.
+    """
+
+    game_classes = {'warrior': Warrior, 'mage': Mage, 'healer': Healer}
+
+    approve_choice: str = ''
+
+    while approve_choice != 'y':
+        selected_class = input('Введи название персонажа, '
+                               'за которого хочешь играть: Воитель — warrior, '
+                               'Маг — mage, Лекарь — healer: ')
+        char_class: Character = game_classes[selected_class](char_name)
+        # Вывели в терминал описание персонажа.
+        print(char_class)
+        approve_choice = input('Нажми (Y), чтобы подтвердить выбор, '
+                               'или любую другую кнопку, '
+                               'чтобы выбрать другого персонажа ').lower()
+    return char_class
+
+
+# warrior = Warrior('Кодослав')
+# print(warrior)
+# print(warrior.attack())
