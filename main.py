@@ -79,8 +79,8 @@ class Character:
 
 class Warrior(Character):
     """Create a Warrior instance of the Character class."""
-    BRIEF_DESC_CHAR_CLASS: str = ('дерзкий воин ближнего боя. '
-                                  'Сильный, выносливый и отважный')
+    BRIEF_DESC_CHAR_CLASS = ('дерзкий воин ближнего боя. '
+                             'Сильный, выносливый и отважный')
     RANGE_VALUE_ATTACK = (3, 5)
     RANGE_VALUE_DEFENCE = (5, 10)
     SPECIAL_BUFF = DEFAULT_STAMINA + 25
