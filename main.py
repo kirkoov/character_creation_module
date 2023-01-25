@@ -136,24 +136,24 @@ def choice_char_class(char_name: str) -> Character:
     return char_class
 
 
-def start_training(character) -> str:
+def start_training(character):
     """Start training as per your Character instance.
     Args: the chosen character name and character class.
     Return: a str representation of the training loop actions
     performed.
     """
 
-    # Замените конструкцию условных операторов на словарь.
-    describe_per_class: dict[str, str] = {
-        'Warrior': (
-            f'{character.name}, ты Воитель — великий мастер ближнего боя.'
-        ),
-        'Mage': f'{character.name}, ты Маг — превосходный укротитель стихий.',
-        'Healer': (
-            f'{character.name}, ты  Лекарь — чародей, способный исцелять раны.'
-        ),
-    }
-    print(describe_per_class[character.__class__.__name__])
+    # # Замените конструкцию условных операторов на словарь.
+    # desc_per_class: dict[str, str] = {  # type: ignore[annotation-unchecked]
+    #     'Warrior': (
+    #         f'{character.name}, ты Воитель — великий мастер ближнего боя.'
+    #     ),
+    #   'Mage': f'{character.name}, ты Маг — превосходный укротитель стихий.',
+    #     'Healer': (
+    #       f'{character.name}, ты  Лекарь — чародей, способный исцелять раны.'
+    #     ),
+    # }
+    # print(desc_per_class[character.__class__.__name__])
 
     print('Потренируйся управлять своими навыками.')
     print('Введи одну из команд: attack — чтобы атаковать противника, '
@@ -167,11 +167,11 @@ def start_training(character) -> str:
     # отвечает за вывод описания персонажа, совсем уберите из кода проекта.
     # Доработайте код самостоятельно.
 
-    commands: dict[str, str] = {
+    commands: dict[str, str] = {  # type: ignore[annotation-unchecked]
         'attack': character.attack(),
         'defence': character.defence(),
         'special': character.special(),
-        'skip': '',
+        'skip': 'Тренировка окончена.',
     }
 
     cmd = None
@@ -185,7 +185,6 @@ def start_training(character) -> str:
             print(commands[cmd])
         else:
             print('Нет такой команды. Введите attack/defence/special пажалста')
-    return 'Тренировка окончена.'
 
 
 if __name__ == '__main__':
