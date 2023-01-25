@@ -6,33 +6,33 @@ from graphic_arts.start_game_banner import run_screensaver
 
 
 # Global string literals
-DEFAULT_ATTACK = 5
-DEFAULT_DEFENCE = 10
-DEFAULT_STAMINA = 80
+DEFAULT_ATTACK: int = 5
+DEFAULT_DEFENCE: int = 10
+DEFAULT_STAMINA: int = 80
 
-BLOCK_LINE = 'блокировал'
-DAMAGE_UNIT = 'ед. урона'
+BLOCK_LINE: str = 'блокировал'
+DAMAGE_UNIT: str = 'ед. урона'
 DAMAGE_LINE: str = 'нанёс урон противнику, равный'
 SPEC_SKILL_LINE: str = 'применил специальное умение'
 
-ENTER_CMDS_LINE: str = ''.join(
-    ['Введи одну из команд: attack — чтобы атаковать противника, ',
-     'defence — чтобы блокировать атаку противника или special — чтобы',
-     ' использовать свою суперсилу.',
-     ])
-ENTER_HERO_NAME_LINE: str = ''.join(
-    ['Введи название персонажа, за которого хочешь играть: Воитель — warrior,',
-     ' Маг — mage, Лекарь — healer: ',
-     ])
+# ENTER_CMDS_LINE: str = ''.join(
+#     ['Введи одну из команд: attack — чтобы атаковать противника, ',
+#      'defence — чтобы блокировать атаку противника или special — чтобы',
+#      ' использовать свою суперсилу.',
+#      ])
+# ENTER_HERO_NAME_LINE: str = ''.join(
+#   ['Введи название персонажа, за которого хочешь играть: Воитель — warrior,',
+#      ' Маг — mage, Лекарь — healer: ',
+#      ])
 
-MAGE_LINE: str = ''.join(['Маг — находчивый воин дальнего боя. Обладает ',
-                          'высоким интеллектом.'])
-HEALER_LINE: str = ''.join(['Лекарь — могущественный заклинатель. Черпает ',
-                            'силы из природы, веры и духов.'])
-APPR_CHOICE_LINE: str = ''.join(
-    ['Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы ',
-     'выбрать другого персонажа ',
-     ])
+# MAGE_LINE: str = ''.join(['Маг — находчивый воин дальнего боя. Обладает ',
+#                           'высоким интеллектом.'])
+# HEALER_LINE: str = ''.join(['Лекарь — могущественный заклинатель. Черпает ',
+#                              'силы из природы, веры и духов.'])
+# APPR_CHOICE_LINE: str = ''.join(
+#     ['Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы ',
+#      'выбрать другого персонажа ',
+#      ])
 
 
 class Character:
