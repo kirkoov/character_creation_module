@@ -116,15 +116,16 @@ def choice_char_class(char_name: str) -> Character:
     approve_choice: str = ''
 
     while approve_choice != 'y':
-        selected_class = input('Введи класс(!) персонажа, '
+        selected_class = input('Введи название персонажа, '
                                'за которого хочешь играть: Воитель — warrior, '
                                'Маг — mage, Лекарь — healer: ')
         try:
             char_class: Character = game_classes[selected_class](char_name)
         except KeyError:
-            print('Такого класса персонажей пока нет. По умолчанию выбран '
+            print('Такого персонажа пока нет. По умолчанию выбран '
                   'Маг. Или выбери другой из имеющихся.')
             char_class: Character = Mage(char_name)  # type: ignore[no-redef]
+
         # Вывели в терминал описание персонажа.
         print(char_class)
         approve_choice = input('Нажми (Y), чтобы подтвердить выбор, '
@@ -133,7 +134,61 @@ def choice_char_class(char_name: str) -> Character:
     return char_class
 
 
-choice_char_class('123')
+def start_training(character) -> str:
+    """Start training as per your Character instance.
+    Args: the chosen character name and character class.
+    Return: a str representation of the training loop actions
+    performed.
+    """
+
+    # Замените конструкцию условных операторов на словарь.
+    describe_per_class: dict[str, str] = {
+        'Warrior': (
+            f'{character.name}, ты Воитель — великий мастер ближнего боя.'
+        ),
+        'Mage': f'{character.name}, ты Маг — превосходный укротитель стихий.',
+        'Healer': (
+            f'{character.name}, ты  Лекарь — чародей, способный исцелять раны.'
+        ),
+    }
+    print(describe_per_class[character.__class__.__name__])
+
+    print('Потренируйся управлять своими навыками.')
+    print('Введи одну из команд: attack — чтобы атаковать противника, '
+          'defence — чтобы блокировать атаку противника или '
+          'special — чтобы использовать свою суперсилу.')
+    print('Если не хочешь тренироваться, введи команду skip.')
+
+    # Команды для тренировки можно вынести в словарь
+    # commands, где ключами будут строковые команды от пользователя, а
+    # значениями — методы объекта, который принимает функция. Блок, который
+    # отвечает за вывод описания персонажа, совсем уберите из кода проекта.
+    # Доработайте код самостоятельно.
+
+    commands: dict[str, str] = {
+        'attack': character.attack(),
+        'defence': character.defence(),
+        'special': character.special(),
+        'skip': '',
+    }
+
+    cmd = None
+    while cmd != 'skip':
+        cmd = input('Введи команду: ')
+        # Вместо блока условных операторов добавьте условие
+        # принадлежности введённой команды словарю.
+        # В функции print() будет вызываться метод класса,
+        # который соответствует введённой команде.
+        if cmd in commands:
+            print(commands[cmd])
+        else:
+            print('Нет такой команды. Введите attack/defence/special пажалста')
+    return 'Тренировка окончена.'
+
+
+cat = choice_char_class('123')
+start_training(cat)
+
 # warrior = Warrior('Кодослав')
 # print(warrior)
 # print(warrior.attack())
