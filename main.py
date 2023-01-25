@@ -110,16 +110,21 @@ def choice_char_class(char_name: str) -> Character:
     Args: a name string.
     Return: an instance of the chosen class.
     """
-
+    # Add a helper dictionary.
     game_classes = {'warrior': Warrior, 'mage': Mage, 'healer': Healer}
 
     approve_choice: str = ''
 
     while approve_choice != 'y':
-        selected_class = input('Введи название персонажа, '
+        selected_class = input('Введи класс(!) персонажа, '
                                'за которого хочешь играть: Воитель — warrior, '
                                'Маг — mage, Лекарь — healer: ')
-        char_class: Character = game_classes[selected_class](char_name)
+        try:
+            char_class: Character = game_classes[selected_class](char_name)
+        except KeyError:
+            print('Такого класса персонажей пока нет. По умолчанию выбран '
+                  'Маг. Или выбери другой из имеющихся.')
+            char_class: Character = Mage(char_name)  # type: ignore[no-redef]
         # Вывели в терминал описание персонажа.
         print(char_class)
         approve_choice = input('Нажми (Y), чтобы подтвердить выбор, '
@@ -128,6 +133,7 @@ def choice_char_class(char_name: str) -> Character:
     return char_class
 
 
+choice_char_class('123')
 # warrior = Warrior('Кодослав')
 # print(warrior)
 # print(warrior.attack())
