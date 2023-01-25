@@ -106,8 +106,8 @@ class Healer(Character):
 
 
 def choice_char_class(char_name: str) -> Character:
-    """Let the user choose their hero: warrior/mage/healer.
-    Args: None.
+    """Choose your Character: warrior/mage/healer.
+    Args: a name string.
     Return: an instance of the chosen class.
     """
 
